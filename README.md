@@ -34,7 +34,18 @@ Hay varias diferencias importantes entre usar Docker y tener Nginx instalado dir
 
 **Rutas de archivos:** A la hora de configurar las rutas, no uso las de mi ordenador real, sino las de "dentro" del contenedor (/var/www/picassgti/).
 
-### ❹ Incidencias Técnicas y Soluciones
+### ❹ Mi página web Picassgti
+La idea para la web ha sido rescatar un proyecto el cual hicimos el año pasado con Quim, nuestro profe de base de datos y lenguaje de marcas. En mi caso he utilizado la Landing page que hice la cual va de una aplicación de piezas de coches.
+### Qué es lo que he hecho para poder agregarlo a docker
+**Interconexión del sistema:** He programado el archivo de conexión en PHP para que, en este caso, la web no busque la base de datos en mi ordenador, sino en el contenedor de MySQL llamado db_jose.
+
+**Gestión de la Base de Datos:** He creado y estructurado las tablas necesarias (usuarios, mensajes, etc.) importando los archivos .sql. A la hora de trabajar, me he asegurado de que todo lo que se escriba en la web se guarde de forma permanente en el disco.
+
+**Formularios Inteligentes:** He configurado el sistema de envío de correos. Cuando un usuario rellena el formulario de contacto, el servidor PHP procesa los datos y, gracias a la configuración SMTP que he hecho, envía un email real de notificación.
+
+**Entorno de pruebas profesional:** Al final, lo que he logrado es que cualquier desarrollador pueda bajarse este repositorio y, con un solo comando, tenga la web funcionando exactamente igual que la tengo yo, sin errores de versiones o de configuración.
+
+### ❺ Incidencias Técnicas y Soluciones
 ### Gestión de Rutas y Volúmenes
 
 **Problema:** Nginx no arrancaba porque se pensaba que un archivo de configuración era en realidad una carpeta.
