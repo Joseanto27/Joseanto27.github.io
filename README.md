@@ -1,9 +1,9 @@
-Proyecto Web con Docker Compose
+## Proyecto Web con Docker Compose
 
-1. Introducción
+### ❶ Introducción:
 Este repositorio documenta el proceso completo de configuración de un servidor local en Ubuntu mediante contenedores Docker,incluyendo la gestión de contenedores, persistencia de datos y resolución de incidencias de red y correo.
 
-2. Fase 1: Instalación y Gestión de Contenedores
+### ❷ Instalación y Gestión de Contenedores
 El primer paso consistió en levantar un stack de servicios mediante Docker Compose.
 
 Stack de Servicios:
@@ -17,7 +17,7 @@ MySQL 8.0: Motor de base de datos para el proyecto picassgti.
 
 phpMyAdmin: Interfaz gráfica para la gestión de MySQL en el puerto 8089.
 
-3. Especificaciones de los Archivos de Configuración
+### ❸ Especificaciones de los Archivos de Configuración
 📄 Docker-compose.yaml
 Es el orquestador del proyecto. A diferencia de un despliegue manual, este archivo automatiza la creación de la red appnet y la interconexión de los 4 servicios (Nginx, PHP, MySQL, phpMyAdmin).
 
@@ -32,7 +32,7 @@ Directivas de PHP: En modo standalone, se usa 127.0.0.1:9000 o un socket de Unix
 
 Rutas de archivos: Las rutas deben coincidir con el volumen montado dentro del contenedor (/var/www/picassgti/), no con la ruta física de la máquina host.
 
-4. Incidencias Técnicas y Soluciones
+### ❹ Incidencias Técnicas y Soluciones
 🔧 Gestión de Rutas y Volúmenes
 Problema: Nginx fallaba al intentar montar un archivo como si fuera un directorio.
 
