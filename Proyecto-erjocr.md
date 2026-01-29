@@ -1,4 +1,4 @@
-# 🚀 Guía de Configuración y Gestión de Proxmox VE
+# Guía de Configuración y Gestión de Proxmox VE
 
 Este repositorio contiene la documentación técnica para la implementación de **Proxmox Virtual Environment**.
 
