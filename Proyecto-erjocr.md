@@ -157,3 +157,14 @@ sudo netplan apply
 # Verificar conectividad con Internet (Prueba de NAT)
 ping 8.8.8.8
 ```
+
+## 🏁 5. Conclusiones y Logros Obtenidos
+
+Con la implementación de esta infraestructura, hemos pasado de tener máquinas virtuales aisladas a un **entorno de red profesional, seguro y segmentado**. Los hitos alcanzados son:
+
+* **Seguridad por Aislamiento:** La red interna (`10.10.10.0/24`) es ahora invisible para cualquier usuario externo, reduciendo drásticamente la superficie de ataque del Cliente.
+* **Control Total del Tráfico:** Mediante **IPTables**, el administrador tiene el poder de decidir exactamente qué paquetes entran (DNAT) y qué máquinas pueden salir a Internet (Masquerade).
+* **Conectividad Transparente:** El nodo Cliente, a pesar de estar en una red privada, opera como si tuviera conexión directa gracias al trabajo de enrutamiento del Gateway.
+* **Persistencia Garantizada:** Gracias a `iptables-persistent`, la arquitectura de red es resiliente y sobrevivirá a reinicios del servidor, eliminando la necesidad de reconfiguración manual.
+
+En resumen, el escenario está **listo y validado** para actuar como cimiento de cualquier servicio corporativo que se decida desplegar, garantizando que la comunicación fluya solo por donde nosotros hemos definido.
