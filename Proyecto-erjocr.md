@@ -121,43 +121,6 @@ ping 8.8.8.8
 nslookup google.com
 ```
 
-# Configuración del Nodo Cliente
-
-La Máquina Cliente es el nodo aislado dentro de la red privada (`10.10.10.0/24`). No tiene acceso directo a Internet; depende totalmente del enrutamiento proporcionado por el Gateway.
-
-## 1. Configuración de Interfaces de Red (Netplan)
-
-El Cliente dispone de **una única tarjeta de red (`ens18`)** conectada al bridge interno `vmbr1`. Se configuró una IP estática y se definió la ruta hacia el Router.
-
-**Archivo:** `/etc/netplan/00-installer-config.yaml`
-
-```bash
-network:
-  ethernets:
-    ens18:
-      dhcp4: false
-      addresses:
-        - 10.10.10.2/24   # IP Estática del Cliente
-      routes:
-        - to: default
-          via: 10.10.10.1 # IP Interna del Router (Gateway)
-      nameservers:
-        addresses: [8.8.8.8, 1.1.1.1]
-  version: 2
-  ```
-
-  ## 2. Aplicación y Verificación
-
-Una vez editado el archivo, se aplican los cambios y se comprueba que el Router está enmascarando el tráfico correctamente.
-
-```bash
-# Aplicar la nueva configuración de red
-sudo netplan apply
-
-# Verificar conectividad con Internet (Prueba de NAT)
-ping 8.8.8.8
-```
-
 ## 🏁 5. Conclusiones y Logros Obtenidos
 
 Con la implementación de esta infraestructura, hemos pasado de tener máquinas virtuales aisladas a un **entorno de red profesional, seguro y segmentado**. Los hitos alcanzados son:
